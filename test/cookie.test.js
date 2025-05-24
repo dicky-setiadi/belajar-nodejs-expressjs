@@ -13,19 +13,19 @@ app.get('/', (req, res) => {
 
 app.post('/login', (req, res) => {
     const name = req.body.name;
-    res.cookie("Login", name, {path: "/"});
+    res.cookie("Login", name, { path: "/" });
     res.send(`Hello ${name}`);
 });
 
 test("Test Cookie Read", async () => {
     const response = await request(app).get("/")
-        .set("Cookie", "name=Eko;author=Programmer Zaman Now");
-    expect(response.text).toBe("Hello Eko");
+        .set("Cookie", "name=Dicky;author=Dicky Setiadi");
+    expect(response.text).toBe("Hello Dicky");
 });
 
 test("Test Cookie Write", async () => {
     const response = await request(app).post("/login")
-        .send({name: "Eko"});
-    expect(response.get("Set-Cookie").toString()).toBe("Login=Eko; Path=/");
-    expect(response.text).toBe("Hello Eko");
+        .send({ name: "Dicky" });
+    expect(response.get("Set-Cookie").toString()).toBe("Login=Dicky; Path=/");
+    expect(response.text).toBe("Hello Dicky");
 });

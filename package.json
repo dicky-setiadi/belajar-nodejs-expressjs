@@ -8,12 +8,12 @@
     "test": "jest"
   },
   "jest": {
-    "maxConcurrency" : 2,
+    "maxConcurrency": 2,
     "verbose": true,
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
     },
-    "collectCoverage": true,
+    "collectCoverage": false,
     "coverageThreshold": {
       "global": {
         "branches": 100,
@@ -27,7 +27,7 @@
       "!vendor/**/*.{js,jsx}"
     ]
   },
-  "author": "Eko Kurniawan Khannedy",
+  "author": "Dicky Setiadi",
   "license": "ISC",
   "dependencies": {
     "winston": "^3.7.2",

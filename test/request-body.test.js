@@ -4,7 +4,7 @@ import expressFileUpload from "express-fileupload";
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(expressFileUpload());
 
 app.post('/json', (req, res) => {
@@ -32,17 +32,17 @@ test("Test Request File Upload", async () => {
     const response = await request(app)
         .post("/file")
         .set("Content-Type", "multipart/form-data")
-        .field("name", "Eko")
+        .field("name", "Dicky")
         .attach("article", __dirname + "/contoh.txt");
 
-    expect(response.text).toBe("Hello Eko, you uploaded contoh.txt");
+    expect(response.text).toBe("Hello Dicky, you uploaded contoh.txt");
 });
 
 test("Test Request JSON", async () => {
     const response = await request(app)
         .post("/json")
         .set("Content-Type", "application/json")
-        .send({name: "World"});
+        .send({ name: "World" });
 
     expect(response.body).toEqual({
         hello: `Hello World`

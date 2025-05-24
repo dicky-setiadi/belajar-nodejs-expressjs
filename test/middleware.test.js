@@ -7,14 +7,14 @@ const logger = (req, res, next) => {
 };
 
 const addPoweredHeader = (req, res, next) => {
-    res.set("X-Powered-By", "Programmer Zaman Now");
+    res.set("X-Powered-By", "UNIKOM");
     next();
 };
 
 const apiKeyMiddleware = (req, res, next) => {
-    if(req.query.apiKey){
+    if (req.query.apiKey) {
         next();
-    }else{
+    } else {
         res.status(401).end();
     }
 };
@@ -35,8 +35,8 @@ app.get('/', (req, res) => {
     res.send(`Hello Response`);
 });
 
-app.get('/eko', (req, res) => {
-    res.send(`Hello Eko`);
+app.get('/dicky', (req, res) => {
+    res.send(`Hello Dicky`);
 });
 
 app.get('/time', (req, res) => {
@@ -44,24 +44,24 @@ app.get('/time', (req, res) => {
 });
 
 test("Test Response Middleware", async () => {
-    const response = await request(app).get("/").query({apiKey: "123"});
-    expect(response.get("X-Powered-By")).toBe("Programmer Zaman Now");
+    const response = await request(app).get("/").query({ apiKey: "123" });
+    expect(response.get("X-Powered-By")).toBe("UNIKOM");
     expect(response.text).toBe("Hello Response");
 });
 
 test("Test Response Middleware 2", async () => {
-    const response = await request(app).get("/eko").query({apiKey: "123"});
-    expect(response.get("X-Powered-By")).toBe("Programmer Zaman Now");
-    expect(response.text).toBe("Hello Eko");
+    const response = await request(app).get("/dicky").query({ apiKey: "123" });
+    expect(response.get("X-Powered-By")).toBe("UNIKOM");
+    expect(response.text).toBe("Hello Dicky");
 });
 
 test("Test Response Middleware Unauthorized", async () => {
-    const response = await request(app).get("/eko");
+    const response = await request(app).get("/dicky");
     expect(response.status).toBe(401);
 });
 
 test("Test Response Middleware Time", async () => {
-    const response = await request(app).get("/time").query({apiKey: "123"});
-    expect(response.get("X-Powered-By")).toBe("Programmer Zaman Now");
+    const response = await request(app).get("/time").query({ apiKey: "123" });
+    expect(response.get("X-Powered-By")).toBe("UNIKOM");
     expect(response.text).toContain("Hello , Today Is");
 });

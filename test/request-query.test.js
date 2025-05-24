@@ -10,6 +10,6 @@ app.get('/', (req, res) => {
 test("Test Query Parameter", async () => {
     const response = await request(app)
         .get("/")
-        .query({ firstName: "Eko" , lastName: "Khannedy"});
-    expect(response.text).toBe("Hello Eko Khannedy");
+        .query({ firstName: "Dicky", lastName: "Setiadi" });
+    expect(response.text).toBe("Hello Dicky Setiadi");
 });

@@ -19,8 +19,8 @@ app.get('/categories/:id(\\d+)', (req, res) => {
 // });
 
 test("Test Route Parameter", async () => {
-    let response = await request(app).get("/products/eko");
-    expect(response.text).toBe("Product: eko");
+    let response = await request(app).get("/products/dicky");
+    expect(response.text).toBe("Product: dicky");
 
     response = await request(app).get("/products/salah");
     expect(response.text).toBe("Product: salah");

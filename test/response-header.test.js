@@ -5,8 +5,8 @@ const app = express();
 
 app.get('/', (req, res) => {
     res.set({
-        "X-Powered-By": "Programmer Zaman Now",
-        "X-Author": "Eko"
+        "X-Powered-By": "UNIKOM",
+        "X-Author": "Dicky"
     });
     res.send(`Hello Response`);
 });
@@ -14,6 +14,6 @@ app.get('/', (req, res) => {
 test("Test Response Header", async () => {
     const response = await request(app).get("/");
     expect(response.text).toBe("Hello Response");
-    expect(response.get("X-Powered-By")).toBe("Programmer Zaman Now");
-    expect(response.get("X-Author")).toBe("Eko");
+    expect(response.get("X-Powered-By")).toBe("UNIKOM");
+    expect(response.get("X-Author")).toBe("Dicky");
 });

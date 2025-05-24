@@ -12,8 +12,8 @@ app.get('/categories/*(\\d+).json', (req, res) => {
 });
 
 test("Test Route Path", async () => {
-    let response = await request(app).get("/products/eko.json");
-    expect(response.text).toBe("/products/eko.json");
+    let response = await request(app).get("/products/dicky.json");
+    expect(response.text).toBe("/products/dicky.json");
 
     response = await request(app).get("/products/salah.json");
     expect(response.text).toBe("/products/salah.json");
